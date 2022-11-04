@@ -33,10 +33,10 @@ stages:
 
     - task: ArchiveFiles@2
       inputs:
-        rootFolderOrFile: '$(System.DefaultWorkingDirectory)\build\'
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)/build/'
         includeRootFolder: false
         archiveType: 'zip'
-        archiveFile: '$(Build.ArtifactStagingDirectory)\$(Build.BuildId).zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
         replaceExistingArchive: true
         
     - task: PublishBuildArtifacts@1

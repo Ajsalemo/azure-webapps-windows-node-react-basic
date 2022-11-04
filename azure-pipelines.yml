@@ -33,10 +33,14 @@ stages:
     - script: |
         npm run build
       displayName: 'npm run build'
+      
+    - script: |
+        ls
+      displayName: 'List directory contents'
 
     - task: ArchiveFiles@2
       inputs:
-        rootFolderOrFile: '$(Build.BinariesDirectory)/build/'
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)/build/'
         includeRootFolder: false
         archiveType: 'zip'
         archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'

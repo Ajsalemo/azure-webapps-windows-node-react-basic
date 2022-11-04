@@ -75,4 +75,4 @@ stages:
               azureSubscription: 'Ansalemo(4388fa06-bf66-4497-82c2-991ba75ecb97)'
               appType: 'webApp'
               appName: 'ansalemo-react-devops'
-              package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'

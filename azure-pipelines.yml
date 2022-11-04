@@ -33,10 +33,6 @@ stages:
     - script: |
         npm run build
       displayName: 'npm run build'
-      
-    - script: |
-        ls
-      displayName: 'List directory contents'
 
     - task: ArchiveFiles@2
       inputs:
@@ -65,11 +61,6 @@ stages:
       runOnce:
         deploy:
           steps:
-          
-          - script: |
-              ls
-            displayName: 'List directory contents'
-
           - task: AzureWebApp@1
             inputs:
               azureSubscription: 'Ansalemo(4388fa06-bf66-4497-82c2-991ba75ecb97)'

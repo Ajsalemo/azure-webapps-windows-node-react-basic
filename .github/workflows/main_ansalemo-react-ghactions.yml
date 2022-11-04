@@ -25,12 +25,15 @@ jobs:
         run: |
           npm install
           npm run build --if-present
+
+      - name: Zip all files for upload between jobs
+        run: zip -r react.zip ./*
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: build/
+          path: react.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,4 +55,7 @@ jobs:
           app-name: 'ansalemo-react-ghactions'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DA5A3AB74EEA4165B1306844947CAC97 }}
-          package: .
+          package: react.zip
+
+      - name: Delete zip file
+        run: rm react.zip

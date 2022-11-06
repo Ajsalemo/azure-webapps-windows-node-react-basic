@@ -67,3 +67,4 @@ stages:
               appType: 'webApp'
               appName: 'ansalemo-react-devops'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+              appSettings: '-WEBSITE_RUN_FROM_PACKAGE 0'
